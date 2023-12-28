@@ -4,4 +4,6 @@ const addbtn= document.getElementById('addbtn');
 
 addbtn.addEventListener('click', function(){
     console.log(inputfiled.value);
+    console.log(inputfiled2.value);
+
 });
