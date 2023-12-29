@@ -37,7 +37,7 @@ button:hover {
 }
 
 
-.container {
+body {
     width: 100%;
     height: 100%;
     background: lightblue;
@@ -46,7 +46,7 @@ button:hover {
     z-index: 2;
   }
   
-  .container::before {
+  body::before {
     content: "";
     position: absolute;
     top: -50%;
