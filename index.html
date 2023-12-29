@@ -1,25 +1,51 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>first project</title>
-    <link rel="stylesheet" type="text/css" href="index.css">
-    
-   
+    <title>Form Example</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
 <body>
+    <div class="moving-background"></div>
+    <div class="container">
+        
         <form>
-            <label >Nom:</label>
-            <input id="inputfiled" type="text" >
-        
-            <label >matricule:</label>
-            <input id="inputfiled2" type="text" >
-        
-            <button type="button" id="addbtn">click</button>
-        </form>
+            <h2>Form</h2>
 
-<script src="index.js"></script>
+            <div class="form-group">
+                <label for="Nom">Nom:</label>
+                <input id="Nom" type="text" placeholder="Enter your name">
+            </div>
+
+            <div class="form-group">
+                <label for="Matricule">Matricule:</label>
+                <input id="Matricule" type="text" placeholder="Enter your matricule">
+            </div>
+
+            <fieldset>
+                <legend>Type de bon:</legend>
+                <div class="radio-group">
+                  <label >
+                    <input type="radio" id="c1" name="bonType" value="Service"/>
+                    <span class="card">Service</span>
+                  </label>
+                  <label >
+                    <input type="radio" id="c2" name="bonType" value="Personnel"/>
+                    <span class="card">Personnel</span>
+                  </label>
+                  <label >
+                    <input type="radio" id="c3" name="bonType" value="Sortie sans bon"/>
+                    <span class="card">Sortie sans bon</span>
+                  </label>
+                </div>
+              </fieldset>
+
+            <button type="button" id="ajouterunbon">Ajouter un bon</button>
+        </form>
+    </div>
+
+    <script src="js/index.js" type="module"></script>
+
 </body>
 </html>
