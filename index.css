@@ -13,6 +13,7 @@ form {
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 2;
 }
 
 input {
@@ -42,6 +43,7 @@ button:hover {
     background: lightblue;
     position: relative;
     overflow: hidden;
+    z-index: 1;
   }
   
   .container::before {
@@ -54,15 +56,15 @@ button:hover {
     background: radial-gradient(circle, #3498db 10%, transparent 20%),
       radial-gradient(circle, transparent 10%, #3498db 20%);
     background-size: 30px 30px; /* Adjust the size of the pattern */
-    animation: moveBackground 8s linear infinite; /* Adjust the animation duration and timing function */
+    animation: moveBackground 15s linear infinite; /* Adjust the animation duration and timing function */
   }
   
   @keyframes moveBackground {
-    0%, 100% {
-      transform: translate(0, 0);
-    }
-    50% {
-      transform: translate(100%, 100%);
-    }
+    0% {
+        transform: translate(0, 0);
+      }
+      100% {
+        transform: translate(20%, 20%);
+      }
   }
   
