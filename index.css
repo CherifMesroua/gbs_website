@@ -13,7 +13,7 @@ form {
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 2;
+    z-index: 1;
 }
 
 input {
@@ -43,7 +43,7 @@ button:hover {
     background: lightblue;
     position: relative;
     overflow: hidden;
-    z-index: 1;
+    z-index: 2;
   }
   
   .container::before {
