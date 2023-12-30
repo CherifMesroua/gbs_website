@@ -26,15 +26,28 @@ afficherexcel.addEventListener('click', function () {
                 dataMatrix[i][j]=arrayData[i][j];
             }
         }
-        const numRows = 60;
-        const numCols = 10;
+        // const numRows = 60;
+        // const numCols = 10;
 
-        for (let i = 0; i < numRows; i++) {
-            const rowContent = Array.from({ length: numCols }, (_, j) => dataMatrix[i][j]).join(" ");
-            displaytext.innerHTML += rowContent + " line: " + i + "\n";
+        // for (let i = 0; i < numRows; i++) {
+        //     const rowContent = Array.from({ length: numCols }, (_, j) => dataMatrix[i][j]).join(" ");
+        //     displaytext.innerHTML += rowContent +"\n";
+        // }
+
+        const jsonData = [];
+        const keys = dataMatrix[0];
+
+        // Starting from 1 as the first sub-array is already used for keys
+        for (let i = 1; i < dataMatrix.length; i++) {
+        const obj = {};
+        for (let j = 0; j < keys.length; j++) {
+            obj[keys[j]] = dataMatrix[i][j];
         }
-        // displaytext.innerHTML = Array(dataMatrix);
-        console.log(Array(dataMatrix));
+        jsonData.push(obj);
+        }
+
+        displaytext.innerHTML = JSON.stringify(jsonData, null, 2);
+        console.log(typeof jsonData);
     }).catch(function (error) {
         console.error("Error reading the file:", error);
     });
