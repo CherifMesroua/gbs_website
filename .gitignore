@@ -1,0 +1,14 @@
+# Ignore temporary files
+*~
+
+# Ignore log files
+*.log
+
+# Ignore build directories
+/build/
+
+# Ignore a specific file
+config.txt
+
+# Ignore a directory named 'excel db'
+excel\ db/
