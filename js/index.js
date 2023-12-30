@@ -26,12 +26,12 @@ afficherexcel.addEventListener('click', function () {
                 dataMatrix[i][j]=arrayData[i][j];
             }
         }
-        for (let i = 0; i < 60; i++) {
-            
-            for (let j = 0; j < 10; j++) {
-                displaytext.innerHTML += (dataMatrix[0][0]) + " ";
-            }
-            displaytext.innerHTML += "<br> <br> <br>";
+        const numRows = 60;
+        const numCols = 10;
+
+        for (let i = 0; i < numRows; i++) {
+            const rowContent = Array.from({ length: numCols }, (_, j) => dataMatrix[i][j]).join(" ");
+            displaytext.innerHTML += rowContent + " line: " + i + "\n";
         }
         // displaytext.innerHTML = Array(dataMatrix);
         console.log(Array(dataMatrix));
