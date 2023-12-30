@@ -8,19 +8,26 @@
 </head>
 <body>
     <div class="moving-background"></div>
+    <textarea name="" id="displaytext" cols="120" rows="40"></textarea>
+
     <div class="container">
-        
+        <form >
+            <h2>Afficher Excel</h2>
+            <input type="file" id="inputfile" accept=".xlsx, .xls" />
+            <button type="button" id="afficherexcel">Afficher Excel</button>
+        </form>
+
         <form>
-            <h2>Form</h2>
+            <h2>Marker un bon</h2>
 
             <div class="form-group">
-                <label for="Nom">Nom:</label>
-                <input id="Nom" type="text" placeholder="Enter your name">
+                <label for="Nom" id="nomlabel">Nom:</label>
+                <input id="Nom" type="text" placeholder="nom d'employeur">
             </div>
 
             <div class="form-group">
-                <label for="Matricule">Matricule:</label>
-                <input id="Matricule" type="text" placeholder="Enter your matricule">
+                <label for="Matricule" id="matriculelabel">Matricule:</label>
+                <input id="Matricule" type="text" placeholder="matricule d'employeur">
             </div>
 
             <fieldset>
@@ -44,8 +51,9 @@
             <button type="button" id="ajouterunbon">Ajouter un bon</button>
         </form>
     </div>
-
-    <script src="js/index.js" type="module"></script>
+     <!-- Include the xlsx library -->
+     <script src="https://unpkg.com/read-excel-file@4.x/bundle/read-excel-file.min.js"></script>
+     <script src="js/index.js" type="module"></script>
 
 </body>
 </html>

@@ -3,48 +3,64 @@ import { initializeApp  } from "https://www.gstatic.com/firebasejs/9.15.0/fireba
 import { getDatabase, ref, set,push } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
 
 document.addEventListener('DOMContentLoaded', function(){
+const ajouterunbon = document.getElementById('ajouterunbon');
+const afficherexcel= document.getElementById('afficherexcel');
+const input = document.getElementById('inputfile');
+const displaytext = document.getElementById('displaytext');
 
+afficherexcel.addEventListener('click', function () {
+    if (!input.files || input.files.length === 0) {
+        console.error("No file selected.");
+        return;
+    }
+
+    const file = input.files[0];
+
+    readXlsxFile(file).then(function (data) {
+        let arrayData = data;
+        console.log(arrayData.length);
+        let dataMatrix= [];
+        for (let i = 0; i < 60; i++) {
+            dataMatrix[i] = [];
+            for (let j = 0; j < 10; j++) {
+                dataMatrix[i][j]=arrayData[i][j];
+            }
+        }
+        for (let i = 0; i < 60; i++) {
+            
+            for (let j = 0; j < 10; j++) {
+                displaytext.innerHTML += (dataMatrix[0][0]) + " ";
+            }
+            displaytext.innerHTML += "<br> <br> <br>";
+        }
+        // displaytext.innerHTML = Array(dataMatrix);
+        console.log(Array(dataMatrix));
+    }).catch(function (error) {
+        console.error("Error reading the file:", error);
+    });
+});
 ajouterunbon.addEventListener('click', function(){
-    const nom = document.getElementById('Nom');
-    const matricule = document.getElementById('Matricule');
+    const nom = document.getElementById('Nom');let nomvalue=nom.value;
+    const matricule = document.getElementById('Matricule');let matriculevalue=matricule.value;
+    const nomlabel= document.getElementById('nomlabel');
+    const matriculelabel= document.getElementById('matriculelabel');
 
-    const ajouterunbon = document.getElementById('ajouterunbon');
     const appsettings = {
         databaseURL: "https://gestiones-ddc58-default-rtdb.europe-west1.firebasedatabase.app/"
     }
 
     const app = initializeApp(appsettings);
     const database = getDatabase();
-    const dbRef = ref(database, matricule.value);
-
-    // const dbRef = firebase.database().ref(database, matricule.value);
+    const dbRef = ref(database, matriculevalue);
 
     var selectedValue = getSelectedRadioValue('input[name="bonType"]:checked');
-    console.log("nom: ",nom.value,"type: ",selectedValue);
-    push(dbRef,{"nom":nom.value,"bonType":selectedValue});
-    // const bonData = {
-    //     "nom": nom.value,
-    //     "id": matricule.value,
-    //     "bonType": bonType
-    // };
-    //push(dbRef,{"nom":nom.value,"id":matricule.value,"bonType":typedebon.value})
-    // console.log("bon ajouter");
-    // console.log({"nom":nom.value,"id":matricule.value});
+    const currentDate = new Date();
 
-    // // / Create a new Date object
-    // const currentDate = new Date();
+    console.log("nom: ",nomvalue,"type: ",selectedValue,"date: ",Date(currentDate.toString()));
+    matriculelabel.innerHTML +=  `${matriculevalue}`;
+    nomlabel.innerHTML += `${nomvalue}`;
+    // push(dbRef,{"nom":nomvalue,"bonType":selectedValue,"date":currentDate.toString()});
 
-    // // Get the current date
-    // const year = currentDate.getFullYear();
-    // const month = currentDate.getMonth() + 1; // Months are zero-based, so we add 1
-    // const day = currentDate.getDate();
-
-    // // Get the current time
-    // const hours = currentDate.getHours();
-    // const minutes = currentDate.getMinutes();
-    // const seconds = currentDate.getSeconds();
-    // console.log("Current Date:", year + "-" + month + "-" + day);
-    // console.log("Current Time:", hours + ":" + minutes + ":" + seconds);
 });
 
 });

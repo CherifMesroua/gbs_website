@@ -7,6 +7,15 @@ body {
     height: 100vh;
 
 }
+
+.displaydata{
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
 .moving-background {
     position: fixed;
     width: 100%;
@@ -28,6 +37,7 @@ body {
 }
 
 form {
+    font-family: "Georgia", Times, serif;
     width: 300px;
     padding: 20px;
     border: 1px solid #ccc;
@@ -43,12 +53,14 @@ h2 {
 }
 
 .form-group {
+
     margin-bottom: 15px;
 }
 
 label {
     display: block;
     margin-bottom: 5px;
+    color: #333;
 }
 
 input {
@@ -69,7 +81,8 @@ button {
 }
 
 button:hover {
-    background-color: #457da0;
+    background-color: rgb(255, 255, 110);
+    color: #333;
 }
 
 /* Rest of your styles... */
