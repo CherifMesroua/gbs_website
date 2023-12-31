@@ -13,21 +13,23 @@
     <div class="container">
         <form >
             <h2>Afficher Excel</h2>
-            <input type="file" id="inputfile" accept=".xlsx, .xls" />
+            <label for="inputfile" class="custom-file-input-label">Choose File</label>
+            <input type="file" id="inputfile" accept=".xlsx, .xls" class="custom-file-input" />
+            <button type="button" id="envoiyerversleserveur">Envoyer vers le serveur</button>
             <button type="button" id="afficherexcel">Afficher Excel</button>
         </form>
 
         <form>
-            <h2>Marker un bon</h2>
+            <h2 >Marker un bon</h2>
 
             <div class="form-group">
                 <label for="Nom" id="nomlabel">Nom:</label>
-                <input id="Nom" type="text" placeholder="nom d'employeur">
+                <input id="Nom" type="text" placeholder="nom d'employeur" required>
             </div>
 
             <div class="form-group">
                 <label for="Matricule" id="matriculelabel">Matricule:</label>
-                <input id="Matricule" type="text" placeholder="matricule d'employeur">
+                <input id="Matricule" type="text" placeholder="matricule d'employeur" required>
             </div>
 
             <fieldset>
